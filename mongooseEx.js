@@ -39,11 +39,13 @@ connect.then((db) => {
     })
     .then((dish) => {
       console.log('this is a test ', dish)
+      return Dishes.deleteMany({})
     })
     .then(() => {
       return mongoose.connection.close()
     })
     .catch((err) => {
       console.log(err)
+      return mongoose.connection.close()
     })
 })
